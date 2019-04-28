@@ -1,0 +1,56 @@
+mutation {
+  createEvent (eventInput: {title: "Rohit", description: "This is rohit", price: 34.3, date:"2019-04-28T10:42:52.181Z"}){
+    title
+    description
+  }
+}
+
+
+query {
+  events{
+    title
+    _id
+  }
+}
+
+mutation{
+  createUser(userInput:{email:"rohit",password:"qwe"}){
+    password
+    email
+  }
+}
+
+query {
+  events{
+    title
+    date
+    creator{
+      email
+      createdEvents{
+        title
+      }
+    }
+  }
+}
+
+mutation {
+bookEvent(eventId:"5cc592fd1a68c50d8fbbb44a"){
+  _id
+  createdAt
+  user{
+    email
+  }
+}
+}
+
+query{
+  bookings{
+    createdAt
+    event{
+      title
+      creator{
+        email
+      }
+    }
+  }
+}
